@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radar MindMap Assistant (Web)</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Radar MindMap Assistant (Web)</h1>
+    <nav id="nav">
+      <button id="btnLogin">Sign in</button>
+      <button id="btnLogout" hidden>Sign out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="auth">
+      <h2>Authentication</h2>
+      <div id="auth-when-signed-out">
+        <label>Email for sign-in link:</label>
+        <input type="email" id="email" placeholder="you@work.com" />
+        <button id="sendLink">Send Magic Link</button>
+        <p class="hint">Check your email and open the link on this device.</p>
+      </div>
+      <div id="auth-when-signed-in" hidden>
+        <p>Signed in as <span id="userEmail"></span></p>
+      </div>
+    </section>
+
+    <section id="webrtc">
+      <h2>Live Preview (WebRTC WHIP)</h2>
+      <div class="row">
+        <label>WHIP Endpoint</label>
+        <input id="whipEndpoint" placeholder="https://your-domain/whip" />
+      </div>
+      <div class="row">
+        <label>ICE Servers (JSON)</label>
+        <textarea id="iceServers" rows="3">[
+  {"urls": ["stun:stun.l.google.com:19302"]}
+]</textarea>
+      </div>
+      <div class="row">
+        <button id="btnStartWhip">Start</button>
+        <button id="btnStopWhip" disabled>Stop</button>
+      </div>
+      <video id="video" playsinline autoplay muted></video>
+    </section>
+
+    <section id="timesheet">
+      <h2>Timesheet</h2>
+      <div class="row">
+        <input id="projectName" placeholder="Project name" />
+        <button id="startTimer">Start</button>
+        <button id="stopTimer" disabled>Stop</button>
+      </div>
+      <div id="timerStatus"></div>
+    </section>
+
+    <section id="export">
+      <h2>Exports</h2>
+      <div class="row">
+        <button id="btnExportDocx">Export DOCX</button>
+        <button id="btnExportPdf">Export PDF</button>
+        <button id="btnExportMd">Export Markdown</button>
+        <button id="btnExportSlides">Build Slides</button>
+      </div>
+      <pre id="exportLog"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <small>Offline-capable PWA. Background sync enabled.</small>
+  </footer>
+
+  <script type="module" src="/scripts/app.js"></script>
+</body>
+</html>

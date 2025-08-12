@@ -1,0 +1,25 @@
+{
+  "firebase": {
+    "apiKey": "YOUR_API_KEY",
+    "authDomain": "your-project.firebaseapp.com",
+    "projectId": "your-project",
+    "appId": "YOUR_APP_ID"
+  },
+  "webrtc": {
+    "whipEndpoint": "https://your-domain/whip",
+    "iceServers": [
+      {
+        "urls": [
+          "stun:stun.l.google.com:19302"
+        ]
+      },
+      {
+        "urls": [
+          "turn:turn.your-domain:3478"
+        ],
+        "username": "user",
+        "credential": "pass"
+      }
+    ]
+  }
+}
